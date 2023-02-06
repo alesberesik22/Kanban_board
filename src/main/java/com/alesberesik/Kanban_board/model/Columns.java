@@ -18,6 +18,9 @@ public class Columns {
     @Column
     private String name;
     
+    @Column(name = "board_id")
+    private String boardId;
+    
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name="column_id", referencedColumnName = "id")
     private List<Tasks> tasks;
