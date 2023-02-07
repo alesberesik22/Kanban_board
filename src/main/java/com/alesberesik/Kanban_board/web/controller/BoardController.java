@@ -1,13 +1,7 @@
 package com.alesberesik.Kanban_board.web.controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.alesberesik.Kanban_board.model.Board;
 import com.alesberesik.Kanban_board.repository.BoardRepository;
@@ -41,9 +35,10 @@ public class BoardController {
 	public ResponseEntity updateBoard(@RequestBody Board board) {
 		return ResponseEntity.ok(boardRepository.save(board));
 	}
-	
-	@DeleteMapping("/{id}")
-	public ResponseEntity deleteBoard(final Integer id) {
+
+	@DeleteMapping()
+	public ResponseEntity deleteBoard(@RequestParam Integer id) {
+		System.out.println("id: "+id);
 		boardRepository.deleteById(id);
 		return ResponseEntity.ok().build();
 	}
