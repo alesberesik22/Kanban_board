@@ -25,6 +25,12 @@ public class Tasks {
 	
 	@Column
 	private Integer sequence;
+
+	@Column
+	private String priority;
+
+	@Column(name = "column_id")
+	private Integer columnId;
 	
 	
 }

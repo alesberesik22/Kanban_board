@@ -25,6 +25,10 @@ public class Board {
 	
 	@Column
 	private String name;
+
+	@Column
+	private String description;
+
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "board_id")
