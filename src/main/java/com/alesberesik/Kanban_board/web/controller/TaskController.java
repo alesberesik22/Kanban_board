@@ -2,12 +2,7 @@ package com.alesberesik.Kanban_board.web.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.config.Task;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.alesberesik.Kanban_board.model.Tasks;
 import com.alesberesik.Kanban_board.repository.TasksRepository;
@@ -28,14 +23,12 @@ public class TaskController {
 	}
 	
 	@PutMapping
-	public ResponseEntity updateTask(final Tasks task) {
+	public ResponseEntity updateTask(@RequestBody final Tasks task) {
 		return ResponseEntity.ok(tasksRepository.save(task));
 	}
 	
 	@PostMapping
-	public ResponseEntity createTask(final Tasks task) {
-		return ResponseEntity.ok(tasksRepository.save(task));
-	}
+	public ResponseEntity createTask(@RequestBody final Tasks task) { return ResponseEntity.ok(tasksRepository.save(task));}
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity deleteTask(final Integer id) {
